@@ -1,18 +1,19 @@
-""" 
-    SUBNET CALCULATOR WRITTEN IN PYTHON TO
-    WORK WITHIN THE FOLLOWING CONSTRAINTS:
-
- * Work with IPv4 only (for now)
- * Identify if input is a valid IP address
-   in CIDR format
- * Output breakdown of information about 
-   subnet:
-     * Network address
-     * Broadcast address
-     * Subnet mask (in dotted quad)
-     * Usable IP/host range
-     * Total IPs and Usable IPs
-"""
+#############################################    
+#    SUBNET CALCULATOR WRITTEN IN PYTHON TO
+#    WORK WITHIN THE FOLLOWING CONSTRAINTS:
+#
+# * Work with IPv4 only (for now)
+# * Identify if input is a valid IP address
+#   in CIDR format
+# * Output breakdown of information about 
+#   subnet:
+#     * Network address
+#     * Broadcast address
+#     * Subnet mask (in dotted quad)
+#     * Usable IP/host range
+#     * Total IPs and Usable IPs
+#
+############################################
 
 # Function to prompt for IP address
 def get_address():
@@ -51,24 +52,22 @@ def get_address():
     return (address, first_octet, second_octet, third_octet, 
 	   fourth_octet, CIDR)
 
-"""
-Function to call after error has been identified to prompt
-for corrected input
-(This currently doesn't work to get a new address into the
-'address' variable. Working on it.)
-"""
+# Function to call after error has been identified to prompt
+# for corrected input
+# (This currently doesn't work to get a new address into the
+# 'address' variable. Working on it.)
 #def try_again(address):
 #    print "%s doesn't look like a valid IPv4 address in CIDR notation."
 #    address = get_address()
 #    return address
 
-"""
-Function to convert CIDR slash notation to dotted quad
-This function isn't so brute force as a dictionary lookup,
-but it does toss values into lists to be converted to 
-integers and strings toward the end. It could likely be 
-made less clunky.
-"""
+
+#Function to convert CIDR slash notation to dotted quad
+#This function isn't so brute force as a dictionary lookup,
+#but it does toss values into lists to be converted to 
+#integers and strings toward the end. It could likely be 
+#made less clunky.
+
 def subnet_convert(CIDR):
     mask_elements = [] #This list is a placeholder for the elements of the subnet octets
     binary = [] #This list is a placeholder for the binary bits to convert to an integer for placement later
@@ -117,6 +116,8 @@ def calc_usable_IPs(CIDR):
 	usable_IPs = str((2 ** (32-CIDR)) - 2)
     return usable_IPs
 
+# Function to calculate the network and broadcast IPs of 
+# the range.
 def network_range(first_octet, second_octet, third_octet, fourth_octet, interesting_octet, CIDR):
     # Source list containing list elements of IP range
     # that will be used to generate network and broadcast
@@ -184,19 +185,17 @@ def list_to_string(address_list):
 
 
 
-"""
-Get the address to subnet
-"""
+
+# Get the address to subnet
 address = get_address()
 
-"""
- Break the address into octects and subnet mask
-"""
+
+# Break the address into octects and subnet mask
+
 #ip_elements = address.split('.')
 
-"""
-Assign the elements of this list to individual variables for checking
-"""
+# Assign the elements of this list to individual variables 
+# for checking
 first_octet = address[1]
 second_octet = address[2]
 third_octet = address[3]
@@ -204,9 +203,8 @@ third_octet = address[3]
 fourth_octet = address[4]
 CIDR = address[5]
 
-"""
-Checking the octet values to ensure they are in range
-"""
+#Checking the octet values to ensure they are in range
+
 
 
 # Call function to convert CIDR slash notation to dotted quad subnet mask
