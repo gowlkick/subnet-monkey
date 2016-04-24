@@ -201,7 +201,7 @@ second_octet = address[2]
 third_octet = address[3]
 #last_bit = ip_elements[3].split('/')
 fourth_octet = address[4]
-CIDR = address[5]
+CIDR = int(address[5])
 
 #Checking the octet values to ensure they are in range
 
@@ -212,9 +212,18 @@ subnet = subnet_convert(CIDR)
 subnet_mask = subnet[0]
 interesting_octet = int(subnet[1])
 
-
-network_address = 
-broadcast_address = 
+network_range_elements = network_range(first_octet, \
+			 second_octet, third_octet, \
+			 fourth_octet, interesting_octet, \
+			 CIDR)
+network_address = network_range_elements[0]
+broadcast_address = network_range_elements[1]
 usable_IPs = calc_usable_IPs(CIDR)
-usable_host_address_range = 
+#usable_host_address_range = 
+
+
+print "IPv4 address entered: %s" % address[0]
+print "Network address for this range: %s" % network_address
+print "Broadcast address for this range: %s" % broadcast_address
+print "Number of usable IPs in this range: %s" % usable_IPs
 
