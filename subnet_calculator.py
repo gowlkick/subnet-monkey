@@ -221,10 +221,13 @@ broadcast_address = network_range_elements[1]
 usable_IPs = calc_usable_IPs(CIDR)
 #usable_host_address_range = 
 
-
-print "IPv4 address entered: %s" % address[0]
-print "Network address for this range: %s" % network_address
-print "Broadcast address for this range: %s" % broadcast_address
-print "Subnet mask for this range is: %s" % subnet_mask
-print "Number of usable IPs in this range: %s" % usable_IPs
-
+print '\n'
+print "###############################################"
+print "# "
+print "# IPv4 address entered: %s" % address[0]
+print "# Network address for this range: %s" % network_address
+print "# Broadcast address for this range: %s" % broadcast_address
+print "# Subnet mask for this range is: %s" % subnet_mask
+print "# Number of usable IPs in this range: %s" % usable_IPs
+print "# "
+print "###############################################"
