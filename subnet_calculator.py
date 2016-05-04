@@ -100,7 +100,7 @@ def subnet_convert(CIDR):
 
     # Convert the mask_elements list to string form and assign to subnet_mask.
     for i in range(len(mask_elements)):
-	if i < 4:
+	if i < 3:
 	    subnet_mask = subnet_mask + mask_elements[i] + '.'
 	else:
 	    subnet_mask = subnet_mask + mask_elements[i]
@@ -231,3 +231,5 @@ print "# Subnet mask for this range is: %s" % subnet_mask
 print "# Number of usable IPs in this range: %s" % usable_IPs
 print "# "
 print "###############################################"
+print '\n'
+
