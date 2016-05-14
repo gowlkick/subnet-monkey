@@ -153,7 +153,7 @@ def network_range(first_octet, second_octet, third_octet, fourth_octet, interest
     network_address = list_to_string(network_address_list)
 
     # Generate the broadcast address from the host range.
-    ending_range = str(int(octet_list[0]) + host_range - 1)
+    ending_range = str(int(beginning_range) + host_range - 1)
     broadcast_address_list = base_list[:]
     broadcast_address_list.append(ending_range)
     broadcast_address_list = fill_255(broadcast_address_list)
