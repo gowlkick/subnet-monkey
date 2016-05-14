@@ -130,13 +130,18 @@ def network_range(first_octet, second_octet, third_octet, fourth_octet, interest
     base_list = []
 
     # Generate the common octets of each address.
-    while CIDR > 8:
+    while CIDR >= 8:
         CIDR -= 8
         base_list.append(octet_list[0])
         octet_list.remove(octet_list[0])
 
     # Generate the prefix for the network range.
-    beginning_range = octet_list[0]
+    beginning_range = int(octet_list[0])
+    host_range = 256 - interesting_octet
+
+    beginning_range = beginning_range / host_range
+    beginning_range = str(beginning_range * host_range)
+
     network_address_list = base_list[:]
     network_address_list.append(beginning_range)
 
@@ -147,11 +152,8 @@ def network_range(first_octet, second_octet, third_octet, fourth_octet, interest
     # Convert to a dotted quad string.
     network_address = list_to_string(network_address_list)
 
-    # Generate the host range for the interesting octet 
-    interesting_range = 255 - interesting_octet
-
     # Generate the broadcast address from the host range.
-    ending_range = str(int(octet_list[0]) + interesting_range)
+    ending_range = str(int(octet_list[0]) + host_range - 1)
     broadcast_address_list = base_list[:]
     broadcast_address_list.append(ending_range)
     broadcast_address_list = fill_255(broadcast_address_list)
@@ -231,5 +233,3 @@ print "# Subnet mask for this range is: %s" % subnet_mask
 print "# Number of usable IPs in this range: %s" % usable_IPs
 print "# "
 print "###############################################"
-print '\n'
-
