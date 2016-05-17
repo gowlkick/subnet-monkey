@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 #############################################    
 #    SUBNET CALCULATOR WRITTEN IN PYTHON TO
 #    WORK WITHIN THE FOLLOWING CONSTRAINTS:
@@ -233,6 +235,9 @@ print "# IPv4 address entered: %s" % address[0]
 print "# Network address for this range: %s" % network_address
 print "# Broadcast address for this range: %s" % broadcast_address
 print "# Subnet mask for this range is: %s" % subnet_mask
+print "# Subnet mask for this range is: %s" % subnet_mask
 print "# Number of usable IPs in this range: %s" % usable_IPs
 print "# "
 print "###############################################"
+print '\n'
+
