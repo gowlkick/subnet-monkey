@@ -135,6 +135,9 @@ def network_range(first_octet, second_octet, third_octet, fourth_octet, interest
         base_list.append(octet_list[0])
         octet_list.remove(octet_list[0])
 
+###################################
+## THIS SECTION COULD BE CLEANER ##
+###################################
     # Generate the prefix for the network range.
     beginning_range = int(octet_list[0])
     host_range = 256 - interesting_octet

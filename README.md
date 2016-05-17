@@ -14,7 +14,7 @@ or in just the way I want them to. I will track them here.
 
 > * Exception handling: I haven't gotten around to playing around with the best way to handle unexpected input.
 >
-> * Network/Broadcast address calculations are off: Yep. Certainly need to fix that!
+> * ~Network/Broadcast address calculations are off: Yep. Certainly need to fix that!~ (This should be fixed now!)
 >
 > * Usable host range: While it's not at all difficult to figure out the usabe host range from the network and broadcast addresses, the whole point of having subnet calculator is to make all of this easier. And to generate something that could more easily be copied and pasted. Shouldn't at all difficult, just something I'd like to do.
 >
